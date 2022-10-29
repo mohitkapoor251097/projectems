@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"  th:replace="employee/base3::layout(~{::article})">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+</head>
+<body>
+
+<article>
+
+
+    <main ng-app="basicApp">
+        <section ng-controller="BasicController as basic">
+            <h1>Bank Details</h1>
+            <form id="employeeInfo">
+                <div>
+                    <label for="firstName">Bank Account No:</label>
+                    <input type="number" id="firstName" class="input-box" ng-model="basic.list.firstName" required/>
+                </div>
+                <div>
+                    <label for="lastName">Bank:</label>
+                    <input type="text" id="lastName" class="input-box" ng-model="basic.list.lastName" />
+                </div>
+                <div>
+                    <label for="employeeId">Branch :</label>
+                    <input type="text" id="employeeId" class="input-box" ng-model="basic.list.employeeId" />
+                </div>
+                <div>
+                    <label for="jobTitle">IFSC Code:</label>
+                    <input type="text" id="jobTitle" class="input-box" ng-model="basic.list.jobTitle" />
+                </div>
+                <div>
+                    <label for="jobTitle1">Bank Address</label>
+                    <input type="textarea" rows="5" cols="5"style="resize:none" id="jobTitle1" class="input-box" ng-model="basic.list.address" />
+                </div>
+<!--                <div>-->
+<!--                    <label for="salary">Employee Salary:</label>-->
+<!--                    <input type="number" id="salary" class="input-box" ng-model="basic.list.salary" />-->
+<!--                </div>-->
+
+                <button type="submit" class="btn-hover color-1" id="submit-button" ng-click="basic.createList()">Submit</button>
+            </form>
+
+<br><br>
+            <div id="employee-data " class="text-center">
+                <h2>Account List</h2>
+                <table id="employeeTable" class="text-center" style="margin-left:500px">
+
+                    <tr>
+                        <th>Bank Account No</th>
+                        <th>Bank</th>
+                        <th>Branch</th>
+                        <th>IFSC Code</th>
+                        <th>Address</th>
+                        <th>Delete Account</th>
+                    </tr>
+                    <tr ng-repeat="list in basic.employeesList">
+                        <td> {{list.firstName}} </td>
+                        <td> {{list.lastName}}</td>
+                        <td> {{list.employeeId}}</td>
+                        <td> {{list.jobTitle}}</td>
+                        <td> {{list.address}}</td>
+                        <td> <button type="submit" class="btn-hover color-3 deleteButton" ng-click="basic.deleteEmployee($index)"> Delete Account</button> </td>
+                    </tr>
+                </table>
+            </div>
+
+<!--            <h3 class="text-center">Total Monthly Expense: <span id="monthly-salary"></span> {{basic.monthlySalary}}</span></h3>-->
+
+        </section>
+
+    </main>
+</article>
+</body>
+</html>

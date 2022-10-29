@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Feedback</title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link rel="icon" type="image/x-icon" href="https://tse4.mm.bing.net/th?id=OIP.6h4Wie36a803mhIATLv58gAAAA&pid=Api&P=0">
+    <link rel="stylesheet" th:href="@{/css/style1.css}"/>
+</head>
+<body>
+
+<section>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="feedsupport.css" />
+    <Body background="https://i.picsum.photos/id/132/1600/1066.jpg?hmac=1_mTFZ5h9vD7KusK2V8WDYh_N7yZNXKeKeXIYO0OlZA" style="background-repeat:no-repeat;background-size:cover;">
+
+    <h1 style="background-color:rgb(30, 30, 255)" class="main-header">Your Feedback</h1>
+    <style>
+    h1{text-align: center;}
+    .back
+    {
+    background-color:blue;
+    width:400px;
+    height:60px;
+    color:white;
+    text-align:center;
+    font-size:50px
+    padding:10px;
+    margin-auto;
+    }
+       .back1
+    {
+    background-color:red;
+    width:400px;
+    height:30px;
+    color:white;
+    text-align:center;
+    }
+</style>
+
+    <hr>
+
+    <form id="app-form" th:action="@{/employee/feedback-done}" method="post">
+        <fieldset class="sub-container" id="basic-details">
+
+
+            <hr>
+            <div class="login">
+
+                <br>
+                <form>
+                    <br>
+                    <div th:if="${session.message}" class="container">
+                        <div th:classappend="${'alert-'+session.message.type}"class="alert text-center ">
+                            <span class="back" th:text="${session.message.content}"></span>
+                        </div>
+                        <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+                    </div>
+
+                    <input type="text" th:value="${emp.name}" name="name" readonly class="text"  required>
+                    <span class="required">username</span>
+
+                    <br>
+                    <br>
+                    <br>
+<!--                    <input type="number" class="Number" name="Employee ID" pattern='^\+?\d{8,8}' required>-->
+<!--                    <span class="required">Employee ID</span>-->
+                    <input type="number" th:value="${emp.code}"  name="code" readonly class="text"  required>
+                    <span class="required">Emp Id</span>
+
+
+                    <br><br>
+
+                    <br>
+                    <br>
+                    <br><input type="text" class="text" name="feedback" required>
+                    <span class="required">Describe your feedback (upto 120 words)</span>
+
+
+
+
+
+
+                    <br>
+                    <br>
+                    <br>
+
+
+
+                    <br>
+
+                    <input type="checkbox" id="checkbox-1-1" class="custom-checkbox" required />
+                    <label for="checkbox-1-1">Click here to save it</label>
+
+                    <button type="submit" class="signin">
+                        Submit
+                    </button>
+
+
+                    <hr>
+
+
+                </form>
+
+            </div>
+
+
+
+</section>
+
+</body>
+</html>

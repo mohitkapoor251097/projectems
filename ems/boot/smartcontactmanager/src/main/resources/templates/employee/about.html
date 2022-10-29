@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+</head>
+<!--<link rel="stylesheet" th:href="@{/css/style3.css}"/>-->
+<style>
+body
+{
+ font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+     .back
+     {
+     background:blue;
+     color:blue;
+     }
+     .ba
+     {
+     color:blue;
+     }
+
+
+
+  html {
+    box-sizing: border-box;
+  }
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  .column {
+    float: left;
+    width: 33.3%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+  }
+
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 8px;
+  }
+
+  .about-section {
+    padding: 50px;
+    text-align: center;
+    background-color: #474e5d;
+    color: white;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .container::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  .title {
+    color: grey;
+  }
+
+  .button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .button:hover {
+    background-color: #555;
+  }
+
+  @media screen and (max-width: 650px) {
+    .column {
+      width: 100%;
+      display: block;
+    }
+  }
+
+</style>
+<body>
+
+
+    <div class="about-section">
+        <h1>About Us Page</h1>
+        <p>Some text about who we are and what we do.</p>
+        <p>Resize the browser window to see that this page is responsive by the way.</p>
+
+    </div>
+
+    <h2 style="text-align:center">Our Team</h2>
+    <div class="row">
+        <div class="column">
+            <div class="card">
+                <img src="/img/harun.jpeg" style="width:100%;height:400px">
+                <div class="container">
+                    <h2>Hargun Singh</h2>
+                    <p class="title">CEO & Founder</p>
+                    <p>Great Man.</p>
+                    <p>hargunsinghhgs@gmail.com</p>
+                    <p><button class="button">Contact</button></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <img src="/img/mohit.jpeg" alt="Mohit" style="width:100%;height:400px">
+                <div class="container">
+                    <h2>Mohit Kapoor</h2>
+                    <p class="title">Director</p>
+                    <p>Important Person.</p>
+                    <p>mohitkapoor@gmail.com</p>
+                    <p><button class="button">Contact</button></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <img src="/img/sachin.jpg" alt="Sachin Kumar" style="width:100%;height:400px">
+                <div class="container">
+                    <h2>Sachin Kumar</h2>
+                    <p class="title">Designer</p>
+                    <p>Frontend Developer.</p>
+                    <p>sachinkumar@gmail.com</p>
+                    <p><button class="button">Contact</button></p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <Body background="https://i.picsum.photos/id/1000/5626/3635.jpg?hmac=qWh065Fr_M8Oa3sNsdDL8ngWXv2Jb-EE49ZIn6c0P-g"  ></Body>
+
+</body>
+</html>

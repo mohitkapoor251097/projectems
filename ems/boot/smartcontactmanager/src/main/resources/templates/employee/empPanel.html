@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"  th:replace="employee/base1::layout(~{::section})">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Employee Panel</title>
+
+
+</head>
+<body>
+
+<section>
+
+    <div id="login">
+
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" action="#"  th:action="@{/emplogin}"  method="post" >
+<!--                            <h3 class="text-center ba ">Login</h3>-->
+                            <div class="container text-center">
+                            <img width="120px" height="120px" src="https://thumbs.dreamstime.com/b/login-glassy-cyan-blue-round-button-isolated-abstract-illustration-97910812.jpg"/>
+                            </div>
+                            <div th:if="${param.error}" class="alert alert-danger">
+                                Invalid UserName & Password
+                            </div>
+                            <div th:if="${param.logout}" class="alert alert-success">
+                                Succesfully Logout
+                            </div>
+                            <div th:if="${param.change}" class="alert alert-success">
+                                <p th:text="${param.change}"></p>
+                            </div>
+                            <div th:if="${session.message}" class="container">
+                                <div th:classappend="${'alert-'+session.message.type}"class="alert text-center">
+                                    <span th:text="${session.message.content}"></span>
+                                </div>
+                                <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="username" class="ba">Username:</label><br>
+                                <input type="text" name="username" id="username" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="ba">Password:</label><br>
+                                <input type="password" name="password" id="password" class="form-control">
+                            </div>
+                            <div class="form-group" >
+                                <br>
+                                <div class="text-center container">
+<!--                                <input type="submit"  style="background-color:blue;border-radius:10px;" name="submit" class="btn  btn-block btn-md text-white" value="Submit">-->
+<!--                                -->
+
+                                    <input type="submit"  name="submit"  class="btn-hover color-9" value="Submit">
+                                </div>
+                            </div>
+                            <div class="container text-center">
+                                <a th:href="@{/forgot}">Forgot Password</a>
+
+
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+</body>
+</html>

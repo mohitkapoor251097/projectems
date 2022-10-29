@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"  th:replace="employee/base2::layout(~{::section})">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Time Sheet</title>
+</head>
+<body>
+
+<section>
+
+    <div id="login1">
+
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-10">
+                    <div id="login-box" class="col-md-12">
+                        <div class="container text-center">
+                            <header>
+                                <br>
+                                <br>
+                                <!--       <h1>NTB</h1> -->
+                                <div th:if="${session.message}" class="container">
+                                    <div th:classappend="${'alert-'+session.message.type}"class="alert text-center">
+                                        <span th:text="${session.message.content}"></span>
+                                    </div>
+                                    <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+                                </div>
+                                <h3>Timesheet </h3>
+                            </header>
+                            <main>
+                                <form class="form" action="#"  th:action="@{/employee/card}"  method="post">
+                                    <div class="form-group row">
+                                        <div class="col-2 text-center" ></div>
+                                        <label class="sr-only" for="name"  th:text="${emp.name}"></label>
+<!--                                        <input type="text" class="form-control mb-2 mr-sm-2 col-4" id="name" placeholder="name" th:text="${emp.name}" />-->
+
+                                        <label class="sr-only" for="datePicker">Date</label>
+                                        <input type="text" class="form-control mb-2 mr-sm-2 col-4" id="datePicker" required placeholder="week commencing">
+                                        <div class="col-2"></div>
+                                    </div>
+<!--                                </form>-->
+                                <table class="table table-dark table-striped table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>Day</th>
+                                        <th>Date</th>
+                                        <th>Start Time</th>
+                                        <th>Finish Time</th>
+                                        <th>Break</th>
+                                        <th>Hours Worked</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="tBody">
+                                    </tbody>
+                                </table>
+                                <div class="row bottom d-none">
+                                    <div class="col">
+
+                                        <input type="submit"   name="submit" class="btn-hover color-3" value="Submit">
+                                    </div>
+                                    </form>
+                                    <div class="col">
+                                        <h2 id="hoursWorkedText" class="text-right">Total Hours Worked: <span id="totalHours">0</span></h2>
+                                    </div>
+                                </div>
+                            </main>
+                            <footer>
+
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- partial -->
+
+</body>
+</html>

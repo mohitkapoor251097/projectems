@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"  th:replace="employee/base::layout(~{::section})">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+</head>
+<body>
+
+<section><h1>this is leave </h1>
+
+    <div id="login1">
+
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-10">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" action="#"  th:action="@{/employee/leave-done}"  method="post" >
+
+                            <div class="container text-center">
+                                <img width="120px" height="120px" src="https://tse4.mm.bing.net/th?id=OIP.lvH0OfLp54L6YW1rBaaaMAHaHb&pid=Api&P=0"/>
+                            </div>
+                            <br>
+                            <div th:if="${session.message}" class="container">
+                                <div th:classappend="${'alert-'+session.message.type}"class="alert text-center">
+                                    <span th:text="${session.message.content}"></span>
+                                </div>
+                                <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+                            </div>
+                            <div class="form-group">
+                                <label for="doa" class="ba">Leave Date</label><br>
+                                <input type="date" name="doa" id="doa" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="sub" class="ba">Enter Subject:</label><br>
+                                <input type="text" name="sub" id="sub" class="form-control" placeholder="Enter Subject" required>
+                            </div>
+<!--                                                        <div class="form-group">-->
+<!--                                                            <label for="mess" class="ba">Enter Message</label><br>-->
+<!--                                                            <input type="textarea" name="mess" rows="10" id="mess" class="form-control" placeholder="Enter Message">-->
+<!--                                                        </div>-->
+                            <div class="input-group mt-3">
+                                <textarea style="width:1000px;height:500px" placeholder="Enter Leave" name="mess" id="mytextarea" class="form-control" rows="10" cols="20"></textarea>
+                            </div>
+
+
+                            <div class="form-group" >
+                                <br>
+                                <div class="text-center container">
+                                    <!--                                    <input type="submit"  style="background-color:blue;border-radius:10px;" name="submit" class="btn  btn-block btn-md text-white" value="Submit">-->
+                                    <input type="submit"   name="submit" class="btn-hover color-3" value="Submit">
+
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+      tinymce.init({
+        selector: '#mytextarea'
+      });
+    </script>
+</section>
+</body>
+</html>

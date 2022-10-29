@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<section class="home banner d-flex justify-content-center align-items-center">
+
+<div class="text-center">
+<h1 class="font-weight-bold"><span id="ani" ></span></h1>
+<p>
+    Employee management system is a software, that helps your employees to give their best efforts every day to achieve the goals of your organization
+</p>
+
+
+    <button class="btn-hover color-2">Get Start</button>
+<!--    <a class="animated-button1">-->
+<!--        <span></span>-->
+<!--        <span></span>-->
+<!--        <span></span>-->
+<!--        <span></span>-->
+<!--        Get Start</a>-->
+</div>
+
+</section>
+<script th:src="@{/js/jquery.ripple-min.js}"></script>
+<script>
+          jQuery(document).ready(function()
+          {
+             $('div').ripples({
+  dropRadius: 20,
+  perturbance: 0.03,
+
+});
+          });
+
+
+          </script>
+</body>
+</html>
